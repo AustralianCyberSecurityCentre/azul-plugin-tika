@@ -1,0 +1,7 @@
+version: "2"
+services:
+  tika:
+    image: docker.io/apache/tika:3.2.3.0-full
+    restart: always
+    ports:
+      - "9998:9998"
