@@ -31,7 +31,7 @@ class AzulPluginTika(BinaryPlugin):
     SETTINGS = add_settings(
         filter_data_types={"content": []},
         filter_max_content_size=(int, 20 * 1024 * 1024),  # File size to process
-        max_text_size=(int, 100 * 1024),  # Max text size before truncation
+        max_text_size=(int, 10 * 1024 * 1024),  # Max text size before truncation
         tika_server=(str, "http://localhost:9998"),
         ignore_types=(
             list[str],
@@ -114,7 +114,8 @@ class AzulPluginTika(BinaryPlugin):
         if "content" in result:
             content = result["content"].strip()
             if content:
-                content = content[: self.cfg.max_text_size]
+                if len(content) > self.cfg.max_text_size:
+                    content = content[: self.cfg.max_text_size] + "\n(truncated)"
                 self.add_text(content)
 
         # Add any attachments as children entities
