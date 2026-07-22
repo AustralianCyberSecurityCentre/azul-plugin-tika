@@ -72,7 +72,7 @@ class AzulPluginTika(BinaryPlugin):
             # use and dump the 'Content-Type' field
             if "Content-Type" in metadata:
                 # some file types we choose to ignore
-                if metadata["Content-Type"] in self.cfg.ignore_types:
+                if metadata["Content-Type"] in self.cfg.ignore_types:  # ty: ignore[unresolved-attribute] ty doesn't understand add_settings
                     return State.Label.OPT_OUT
                 elif isinstance(metadata["Content-Type"], str):
                     content_type = [metadata["Content-Type"]]
@@ -114,8 +114,8 @@ class AzulPluginTika(BinaryPlugin):
         if "content" in result:
             content = result["content"].strip()
             if content:
-                if len(content) > self.cfg.max_text_size:
-                    content = content[: self.cfg.max_text_size] + "\n(truncated)"
+                if len(content) > self.cfg.max_text_size:  # ty: ignore[unresolved-attribute] ty doesn't understand add_settings
+                    content = content[: self.cfg.max_text_size] + "\n(truncated)"  # ty: ignore[unresolved-attribute] ty doesn't understand add_settings
                 self.add_text(content)
 
         # Add any attachments as children entities
@@ -134,7 +134,7 @@ class AzulPluginTika(BinaryPlugin):
         """
         result = None
         try:
-            result = unpack.from_file(file_path, self.cfg.tika_server, requestOptions={"timeout": 160})
+            result = unpack.from_file(file_path, self.cfg.tika_server, requestOptions={"timeout": 160})  # ty: ignore[unresolved-attribute] ty doesn't understand add_settings
         except TimeoutError:
             raise
         except ConnectionError:
@@ -149,7 +149,7 @@ class AzulPluginTika(BinaryPlugin):
             return result
         time.sleep(1)
         # One more re-attempt or simply give the error.
-        return unpack.from_file(file_path, self.cfg.tika_server, requestOptions={"timeout": 160})
+        return unpack.from_file(file_path, self.cfg.tika_server, requestOptions={"timeout": 160})  # ty: ignore[unresolved-attribute] ty doesn't understand add_settings
 
 
 def main():
