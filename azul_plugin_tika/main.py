@@ -11,7 +11,6 @@ from azul_runner import (
     Feature,
     FeatureType,
     FeatureValue,
-    Filepath,
     Job,
     State,
     add_settings,
@@ -124,7 +123,7 @@ class AzulPluginTika(BinaryPlugin):
                 c = self.add_child_with_data({"action": "extracted"}, child_data)
                 # sometimes it just uses the original file name, which is randomly generated
                 if os.path.basename(data.get_filepath()) not in child_name:
-                    c.add_feature_values("filename", Filepath(child_name))
+                    c.add_feature_values("filename", child_name)
         self.add_many_feature_values(features)
 
     def unpack(self, file_path: str):
