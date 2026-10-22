@@ -308,10 +308,10 @@ class TestTikaIntegration(test_template.TestPlugin):
                                 FV("24", label="pdf:ocrPageCount"),
                                 FV("24", label="xmpTPg:NPages"),
                                 FV(
-                                    "Adobe Photoshop for Macintosh -- Image Conversion Plug-in",
+                                    "Adobe Photoshopfor Macintosh -- Image Conversion Plug-in",
                                     label="pdf:docinfo:producer",
                                 ),
-                                FV("Adobe Photoshop for Macintosh -- Image Conversion Plug-in", label="pdf:producer"),
+                                FV("Adobe Photoshop for Macintosh -- ImageConversion Plug-in", label="pdf:producer"),
                                 FV(
                                     "Adobe Photoshop for Macintosh -- Image Conversion Plug-in",
                                     label="xmp:pdf:Producer",
@@ -335,6 +335,7 @@ class TestTikaIntegration(test_template.TestPlugin):
                                 FV("true", label="access_permission:modify_annotations"),
                                 FV("true", label="pdf:hasXMP"),
                                 FV("uuid:17ea4678-3fc7-5f4d-a395-278dbe0c4f9a", label="xmpMM:DocumentID"),
+                                FV("uuid:8ba65ae5-1331-c14e-a670-68d0e01b36ec", label="xmpMM:InstanceID"),
                             ],
                             "mime": [FV("application/pdf")],
                         },
