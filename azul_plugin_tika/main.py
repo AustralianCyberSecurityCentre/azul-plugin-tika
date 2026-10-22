@@ -41,7 +41,7 @@ class AzulPluginTika(BinaryPlugin):
             ],
         ),
     )
-    VERSION = "2025.04.07"
+    VERSION = "2026.10.22"
     FEATURES = [
         # generic catch all feature
         Feature("file_metadata", "Metadata field extracted by tika, label is the field name", type=FeatureType.String),
