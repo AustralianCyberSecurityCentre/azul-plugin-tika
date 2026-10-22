@@ -308,10 +308,10 @@ class TestTikaIntegration(test_template.TestPlugin):
                                 FV("24", label="pdf:ocrPageCount"),
                                 FV("24", label="xmpTPg:NPages"),
                                 FV(
-                                    "Adobe Photoshopfor Macintosh -- Image Conversion Plug-in",
+                                    "Adobe Photoshop for Macintosh -- Image Conversion Plug-in",
                                     label="pdf:docinfo:producer",
                                 ),
-                                FV("Adobe Photoshop for Macintosh -- ImageConversion Plug-in", label="pdf:producer"),
+                                FV("Adobe Photoshop for Macintosh -- Image Conversion Plug-in", label="pdf:producer"),
                                 FV(
                                     "Adobe Photoshop for Macintosh -- Image Conversion Plug-in",
                                     label="xmp:pdf:Producer",
